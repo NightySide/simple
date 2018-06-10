@@ -1,0 +1,28 @@
+use InputOutput
+
+display "Hello! and welcome in this mini game..."
+wait for 3 seconds
+choose a random number between 1 and 1000
+remember it as ChosenNumber
+display "I've chosen a number, try and guess it"
+this is the line Attempt
+ask
+remember it as Answer
+is Answer| smaller than ChosenNumber ?
+if so go to TryGreater
+is Answer| greater than ChosenNumber ?
+if so go to TrySmaller
+is Answer| equal to ChosenNumber ?
+if so go to Bravo
+
+this is the line TryGreater
+display "Try a higher number"
+go to Attempt
+
+this is the line TrySmaller
+display "Nope, try smaller"
+go to Attempt
+
+this is the line Bravo
+display "Well done !"
+quit
