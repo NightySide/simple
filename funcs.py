@@ -14,12 +14,27 @@ def next_line(ps):
 
     current_line, raw_text = separate_string(current_line)
 
+    aliases_keys = list(ps.aliases.keys())
+    if aliases_keys is not None :
+        executable = False
+        totally_replaced = False
+        while not totally_replaced :
+            totally_replaced = True
+            for alias in aliases_keys:
+                if alias in current_line :
+                    #print("Found :",alias,"replacing with :",ps.aliases[alias])
+                    current_line = current_line.replace(alias, ps.aliases[alias])
+                    totally_replaced = False
+                    if alias == ps.aliases[alias]:
+                        aliases_keys.remove(alias)
+                        break
+        #print("alias replaced -> {}".format(current_line))
 
+    #put back strings
+    current_line = current_line.replace(" ",'"')
+    current_line = current_line.replace('|','{}').format(*raw_text)
 
-    #put back string
-    current_line = current_line.replace('|',"{}").format(*raw_text)
-
-    current_line = current_line.split()
+    current_line = current_line.split('"')
     if current_line[0] in ps.functions.keys() :
         ps.functions[current_line[0]](*current_line[1:],p = ps)
     else :

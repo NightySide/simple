@@ -1,6 +1,9 @@
 use InputOutput
+use Utils
+alias display >>
+alias "I want you to print" >>
 
-display "Hello! and welcome in this mini game..."
+I want you to print "Hello! and welcome in this mini game..."
 wait for 3 seconds
 choose a random number between 1 and 1000
 remember it as ChosenNumber
