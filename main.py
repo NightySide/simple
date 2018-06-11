@@ -3,9 +3,8 @@ from funcs import next_line
 import importlib
 
 
-
 def use(*name, p): #import a module, and load references to use it
-    print(name)
+    #print(name)
     new_module = importlib.import_module(name[0])
     p.functions.update(new_module.functions)
 
