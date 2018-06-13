@@ -1,10 +1,15 @@
 use InputOutput
 use Utils
+use Random
 [ ~~ alias
 alias display >>
 alias "I want you to print" >>
+alias "Choose a number between" randrange
 
 I want you to print "Hello! and welcome in this mini game..."
+display buffer
+Choose a number between 1 1000
+display buffer
 wait for 3 seconds
 choose a random number between 1 and 1000
 remember it as ChosenNumber
