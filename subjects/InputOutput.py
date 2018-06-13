@@ -1,4 +1,4 @@
 def disp(*txt, p):
     print(*txt)
-
-functions = {">>":disp}
+ask = lambda p : p.b(input())
+functions = {">>":disp,"?":ask}

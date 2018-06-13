@@ -15,8 +15,10 @@ def next_line(ps):
     current_line, raw_text = separate_string(current_line)
 
     aliases_keys = list(ps.aliases.keys())
+    aliases_keys.sort(key = lambda s: -len(s))
+    executable = False
+
     if aliases_keys is not None :
-        executable = False
         totally_replaced = False
         while not totally_replaced :
             totally_replaced = True

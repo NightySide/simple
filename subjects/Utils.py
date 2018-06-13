@@ -1,3 +1,4 @@
+
 def alias(w1, w2, p):
     """w1 will now be available as w2"""
     p.aliases[w1]=w2

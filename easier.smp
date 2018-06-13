@@ -1,0 +1,10 @@
+use InputOutput
+use Utils
+use Random
+use Time
+[ ~~ alias
+alias display >>
+alias "I want you to print" >>
+alias "Choose a number between" randrange
+[ wait "wait for"
+[ ? ask

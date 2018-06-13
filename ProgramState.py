@@ -7,6 +7,12 @@ def use(*name, p): #import a module, and load references to use it
     p.functions.update(new_module.functions)
     p.generate_aliases(new_module.functions)
     #print("Now available :", str(p.functions))
+def grab(name, p):
+    mid_content = funcs.readFile(name+".smp")
+    del p.program[p.line]
+    p.program[p.line:p.line]=mid_content
+    p.line-=1
+    print("code is now ",str(p.program))
 
 class ProgramState:
     def __init__(self):
@@ -14,8 +20,9 @@ class ProgramState:
         self.line = 0
         self.buffer = 0
 
-        self.functions = {"use":use}
-        self.aliases = {"use":"use"}
+        self.functions = {"use":use, "import":grab}
+        self.aliases = {}
+        self.generate_aliases(self.functions)
     def generate_aliases(self,dict):
         for w in dict.keys():
             self.aliases[w]=w
@@ -26,8 +33,9 @@ class ProgramState:
         self.buffer = value
     def __repr__(self):
         n = "\n"
-        r = "----Program State----\n"
+        r = "\n\n----Program State----\n"
         r += "program length : "+str(len(self.program))+n
         r += "aliases table : "+str(self.aliases)+n
-        r += "available functions : "+str(list(self.functions.keys()))
+        r += "available functions : "+str(list(self.functions.keys()))+n
+        r += "buffer : "+str(self.buffer)
         return r
