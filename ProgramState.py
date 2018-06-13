@@ -5,15 +5,18 @@ def use(*name, p): #import a module, and load references to use it
     #print(name)
     new_module = importlib.import_module(name[0])
     p.functions.update(new_module.functions)
+    p.generate_aliases(new_module.functions)
+    #print("Now available :", str(p.functions))
 
 class ProgramState:
     def __init__(self):
         self.program = []
         self.line = 0
+        self.buffer = 0
 
         self.functions = {"use":use}
         self.aliases = {"use":"use"}
-    def generate_aliases(dict):
+    def generate_aliases(self,dict):
         for w in dict.keys():
             self.aliases[w]=w
     def load(self, filename):

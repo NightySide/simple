@@ -1,5 +1,6 @@
 use InputOutput
 use Utils
+[ ~~ alias
 alias display >>
 alias "I want you to print" >>
 
