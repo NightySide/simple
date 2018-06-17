@@ -12,7 +12,7 @@ def next_line(ps):
     current_line = ps.program[ps.line]
     #print("Processing line |{}".format(current_line))
 
-    current_line, raw_text = separate_string(current_line)
+    current_line, raw_text = separateString(current_line)
 
     aliases_keys = list(ps.aliases.keys())
     aliases_keys.sort(key = lambda s: -len(s))
@@ -34,7 +34,10 @@ def next_line(ps):
                         aliases_keys.remove(alias)
                         break
 
+
     current_line = current_line.replace("buffer", str(ps.buffer))
+    for k,v in ps.vars.items():
+        current_line = current_line.replace(k,v)
         #print("alias replaced -> {}".format(current_line))
 
     #put back strings
@@ -48,7 +51,7 @@ def next_line(ps):
         print("unknown command : {}".format(current_line[0]))
     ps.line+=1
 
-def separate_string(line):
+def separateString(line):
     line = line.split('"')
     raw_text = line[1::2]
     #print("quotings : {}".format(raw_text))

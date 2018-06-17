@@ -23,6 +23,8 @@ class ProgramState:
         self.functions = {"use":use, "import":grab}
         self.aliases = {}
         self.generate_aliases(self.functions)
+
+        self.vars = {}
     def generate_aliases(self,dict):
         for w in dict.keys():
             self.aliases[w]=w
@@ -38,4 +40,5 @@ class ProgramState:
         r += "aliases table : "+str(self.aliases)+n
         r += "available functions : "+str(list(self.functions.keys()))+n
         r += "buffer : "+str(self.buffer)
+        r += "variables : "+str(self.vars)
         return r

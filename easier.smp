@@ -2,6 +2,7 @@ use InputOutput
 use Utils
 use Random
 use Time
+use Variables
 [ ~~ alias
 alias display >>
 alias "I want you to print" >>
