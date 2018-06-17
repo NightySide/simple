@@ -7,5 +7,6 @@ def replace(w1, w2, p):
     if w1 in p.aliases.keys():
         p.aliases[w2] = p.aliases[w1]
         del p.aliases[w1]
-
-functions = {"~~":alias,"[":replace}
+def ignore(w, p):
+    p.ignore.append(w)
+functions = {"~~":alias,"[":replace,"X":ignore}

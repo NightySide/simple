@@ -9,3 +9,5 @@ alias "I want you to print" >>
 alias "Choose a number between" randrange
 [ wait "wait for"
 [ ? ask
+X and
+alias "Remember it as" var
