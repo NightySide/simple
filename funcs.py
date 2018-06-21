@@ -52,6 +52,12 @@ def next_line(ps):
 
     #put back strings
     current_line = current_line.replace(" ",'"')
+    for i, v in enumerate(current_line.split('"')):
+        if "line "+v in ps.program:
+            pos = current_line.index(v)
+            print("current_line was : ",current_line, end = " ")
+            current_line = current_line[:pos]+str(ps.program.index("line "+v))+current_line[pos+len(v):]
+            print("now :",current_line)
     current_line = current_line.replace('|','{}').format(*raw_text)
 
     current_line = current_line.split('"')

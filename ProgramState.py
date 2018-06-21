@@ -27,6 +27,7 @@ class ProgramState:
         self.ignore = []
 
         self.vars = {}
+
     def generate_aliases(self,dict):
         for w in dict.keys():
             self.aliases[w]=w

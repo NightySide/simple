@@ -9,7 +9,7 @@ var Test 10
 display test = Test
 Remember it as ChosenNumber
 display "I've chosen a number, try and guess it"
-this is the line Attempt
+line Attempt
 ask
 remember it as Answer
 is Answer| smaller than ChosenNumber ?
@@ -19,14 +19,13 @@ if so go to TrySmaller
 is Answer| equal to ChosenNumber ?
 if so go to Bravo
 
-this is the line TryGreater
+line TryGreater
 display "Try a higher number"
-go to Attempt
 
-this is the line TrySmaller
+line TrySmaller
 display "Nope, try smaller"
-go to Attempt
+goto Attempt
 
-this is the line Bravo
+line Bravo
 display "Well done !"
 quit

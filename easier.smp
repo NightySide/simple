@@ -3,6 +3,8 @@ use Utils
 use Random
 use Time
 use Variables
+use LineControl
+
 [ ~~ alias
 alias display >>
 alias "I want you to print" >>
